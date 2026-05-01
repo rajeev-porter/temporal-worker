@@ -1,3 +1,4 @@
+import asyncio
 import logging
 
 from temporalio import activity
@@ -7,11 +8,11 @@ logger = logging.getLogger(__name__)
 
 @activity.defn
 async def keda_test_activity(message: str) -> str:
-
-    await asyncio.sleep(100)
     """
     Minimal activity for KEDA autoscaling validation.
     Logs the message and returns a simple response.
     """
+    await asyncio.sleep(100)
+
     logger.info("Activity received message: %s", message)
     return f"processed: {message}"
