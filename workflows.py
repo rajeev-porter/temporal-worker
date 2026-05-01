@@ -24,7 +24,7 @@ class KedaTestWorkflow:
         result = await workflow.execute_activity(
             keda_test_activity,
             message,
-            start_to_close_timeout=timedelta(seconds=30),
+            start_to_close_timeout=timedelta(seconds=300),
             retry_policy=RetryPolicy(maximum_attempts=3),
         )
 
