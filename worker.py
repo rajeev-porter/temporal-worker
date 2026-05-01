@@ -36,6 +36,8 @@ async def main():
         task_queue=settings.task_queue,
         workflows=[KedaTestWorkflow],
         activities=[keda_test_activity],
+        max_concurrent_activities=1,   
+        max_concurrent_workflow_tasks=1
     )
 
     # Graceful shutdown on SIGTERM / SIGINT
